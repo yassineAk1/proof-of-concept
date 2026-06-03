@@ -84,3 +84,12 @@
   margin: 0;
   padding: 0;
 }
+
+header{
+  height: 60px;
+
+  nav{
+    height: 100%;
+    background-color: var(--color-oranje);
+  }
+}
