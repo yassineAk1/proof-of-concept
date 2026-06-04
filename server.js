@@ -13,8 +13,10 @@ app.engine('liquid', engine.express())
 app.set('views', './views')
 
 app.get('/', async function (request, response) {
-
-    response.render('index.liquid')
+  const houseResponse = await fetch(`https://fdnd-agency.directus.app/items/f_houses/40?fields=*.*`)
+  const houseResponseJSON = await houseResponse.json()
+  const house = houseResponseJSON.data
+    response.render('index.liquid', {house})
 })
 
 app.get('/favorieten', async function (request, response) {
