@@ -17,6 +17,10 @@ app.get('/', async function (request, response) {
     response.render('index.liquid')
 })
 
+app.get('/favorieten', async function (request, response) {
+
+    response.render('favorieten.liquid')
+})
 
 
 app.set('port', process.env.PORT || 8000)
