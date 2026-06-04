@@ -245,3 +245,46 @@ background-color: #F2F2F2;
     color: var(--color-blauw);
   }
 }
+
+
+.thumbnail{
+  position: relative;
+  a{
+    img{
+      width: 100%;
+    }
+  }
+}
+
+.thumbnail-grid{
+  ul{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 8px;
+    padding-inline: 1rem;
+
+    img{
+      width: 100%;
+      border-radius: 4px;
+    }
+  }
+}
+.action-buttons{
+  display: flex;
+  gap: 8px;
+  position: absolute;
+  top: 10%;
+  right: 5%;
+
+  button{
+    border-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    padding: 4px 8px;
+    background-color: var(--color-wit);
+    border-radius: 4px;
+  }  
+
+}
