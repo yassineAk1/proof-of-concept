@@ -1,0 +1,15 @@
+<section class="listing-header">
+    <h1>{{ house.street }} {{ house.house_nr }}{% if house.nr_addition %} {{ house.nr_addition }}{% endif %}</h1>
+    <p class="listing-location">{{ house.postal_code }} {{ house.city }}</p>
+    <p class="listing-price">€ {{ priceFormatted }} k.k.</p>
+    <ul class="listing-info">
+        <li><img src="/icons/square@2x.svg" alt="">696 m²</li>
+        <li><img src="/icons/tile@2x.svg" alt="">896 m²</li>
+        <li><img src="/icons/bed@2x.svg" alt="">17</li>
+        <li><img src="/icons/energy@2x.svg" alt="">G</li>
+    </ul>
+    <a href="#" class="listing-maandlasten">
+        <img src="/icons/calculator@2x.svg" alt="">
+        Wat worden mijn maandlasten?
+    </a>
+</section>
