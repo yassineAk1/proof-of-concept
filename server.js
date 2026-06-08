@@ -15,13 +15,17 @@ app.set('views', './views')
 app.get('/', async function (request, response) {
   const houseResponse = await fetch(`https://fdnd-agency.directus.app/items/f_houses/40?fields=*.*`)
   const houseResponseJSON = await houseResponse.json()
-  const house = houseResponseJSON.data
+  const house = houseResponseJSON.data  
 
   const listResponse = await fetch('https://fdnd-agency.directus.app/items/f_list/1?fields=*.*')
   const listJSON = await listResponse.json()
   const isFavoriet = listJSON.data.houses.some(huis => huis.f_houses_id === 40)
 
-  response.render('index.liquid', {house, isFavoriet})
+  const priceFormatted = house.price.toLocaleString('nl-NL')
+  const pricePerM2 = Math.round(house.price / house.m2).toLocaleString('nl-NL')
+  const listedDate = new Date(house.listed_date).toLocaleDateString('nl-NL', { day: 'numeric', month: 'long', year: 'numeric' })
+
+  response.render('index.liquid', {house, isFavoriet, priceFormatted, pricePerM2, listedDate})
 })
 
 app.post('/', async function (request, response) {
