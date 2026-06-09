@@ -69,6 +69,7 @@
 
   --font-weight-regular: 400;
   --font-weight-semibold: 600;
+   --font-weight-bold: 700;
 
   /*110% voor koppen, 150% voor body */
   --line-height-display-headline: 1.1;
@@ -94,12 +95,11 @@ body {
 }
 
 header {
- height: 60px;
+  height: 60px;
 
   .hamburger-menu {
     display: flex;
     flex-direction: column;
-    margin: auto 0;
 
     button {
       border: none;
@@ -110,22 +110,24 @@ header {
   a,
   p {
     color: var(--color-wit);
+    font-size: 0.75rem;
   }
 
   nav {
     height: 100%;
     background-color: var(--color-oranje);
     display: flex;
-    justify-content: space-between;
-    padding-inline: 4px;
+    align-items: center;
+    gap: 12px;
+    padding-inline: 12px;
   }
 
   .funda-logo {
-    margin: auto 0;
+    margin-right: auto;
 
     img {
+      height: 100%;
       width: 100%;
-      height: 70%;
     }
   }
 
