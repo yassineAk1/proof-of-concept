@@ -134,7 +134,7 @@ header {
   .header-buttons {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 20px;
 
     a {
       text-decoration: none;
