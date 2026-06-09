@@ -1,0 +1,75 @@
+
+<section class="kenmerken">
+    <h2>Kenmerken</h2>
+
+    <article class="kenmerk-blok">
+        <h3><img src="/icons/handshake@2x.svg" alt=""> Overdracht</h3>
+        <dl>
+            <dt>Vraagprijs</dt>
+            <dd>€ {{ priceFormatted }} k.k.</dd>
+            <dt>Vraagprijs per m²</dt>
+            <dd>€ {{ pricePerM2 }}</dd>
+            <dt>Aangeboden sinds</dt>
+            <dd>{{ listedDate }}</dd>
+            <dt>Status</dt>
+            <dd>Beschikbaar</dd>
+        </dl>
+    </article>
+
+    <article class="kenmerk-blok">
+        <h3><img src="/icons/building@2x.svg" alt=""> Bouw</h3>
+        <dl>
+            <dt>Soort huis</dt>
+            <dd>Eengezinswoning</dd>
+            <dt>Soort bouw</dt>
+            <dd>Bestaande bouw</dd>
+            <dt>Bouwperiode</dt>
+            <dd>1960</dd>
+            <dt>Soort dak</dt>
+            <dd>Zadeldak bedekt met pannen</dd>
+        </dl>
+    </article>
+
+    <article class="kenmerk-blok">
+        <h3><img src="/icons/surface@2x.svg" alt=""> Oppervlakten en inhoud</h3>
+        <dl>
+            <dt>Wonen</dt>
+            <dd>{{ house.m2 }} m²</dd>
+            <dt>Perceel</dt>
+            <dd>188 m²</dd>
+            <dt>Tuin</dt>
+            <dd>{{ house.m2_garden }} m²</dd>
+        </dl>
+    </article>
+
+    <article class="kenmerk-blok">
+        <h3><img src="/icons/house@2x.svg" alt=""> Indeling</h3>
+        <dl>
+            <dt>Aantal kamers</dt>
+            <dd>{{ house.rooms }} {% if house.rooms == 1 %}kamer{% else %}kamers{% endif %}</dd>
+            <dt>Aantal badkamers</dt>
+            <dd>1 badkamer en 1 apart toilet</dd>
+            <dt>Aantal woonlagen</dt>
+            <dd>2 woonlagen</dd>
+            <dt>Voorzieningen</dt>
+            <dd>Mechanische ventilatie en TV kabel</dd>
+        </dl>
+    </article>
+
+    <article class="kenmerk-blok">
+        <h3><img src="/icons/energy@2x.svg" alt=""> Energie</h3>
+        <dl>
+            <dt><img class="info-icon" src="/icons/info-filled@2x.svg" alt=""> Energielabel</dt>
+            <dd><img src="/icons/energie-label-a@2x.svg" alt="Energielabel A"> Energielabel A</dd>
+            <dt>Verwarming</dt>
+            <dd>Cv-ketel</dd>
+            <dt>Warm water</dt>
+            <dd>Remeha (2005)</dd>
+        </dl>
+    </article>
+
+    <a href="#" class="bekijk-alle">
+        <img src="/icons/plus@2x.svg" alt="">
+        Bekijk alle kenmerken
+    </a>
+</section>

@@ -311,6 +311,97 @@ main > :not(header, .thumbail-wrapper) {
 }
 
 
+/* ---------- Kenmerken ---------- */
+.kenmerken {
+  border: none;
+  padding: 0;
+    padding-top: 1rem;
+
+
+  h2 {
+    margin-bottom: 16px;
+  }
+}
+
+.kenmerk-blok {
+  background-color: var(--color-wit);
+  border: 1px solid #e6e6e6;
+  border-radius: 8px;
+  padding: 16px 20px;
+  margin-bottom: 16px;
+
+  h3 {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1rem;
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-donkergrijs);
+    padding-bottom: 12px;
+    margin-bottom: 4px;
+    border-bottom: 1px solid #e6e6e6;
+
+    img {
+      width: 20px;
+      height: 20px;
+      filter: brightness(0) invert(0%);
+    }
+  }
+
+  dt {
+    color: #4D4D4D;
+    padding-top: 12px;
+  }
+
+  dd {
+    color: var(--color-donkergrijs);
+    padding-bottom: 12px;
+    border-bottom: 1px solid #e6e6e6;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  dd:last-of-type {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .info-icon {
+    width: 16px;
+    height: 16px;
+    vertical-align: -2px;
+    margin-right: 4px;
+  }
+}
+
+.bekijk-alle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: var(--color-blauw);
+  font-weight: var(--font-weight-semibold);
+
+  img {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.energie-label {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 28px;
+  padding: 2px 14px 2px 8px;
+  background-color: var(--color-groen);
+  color: var(--color-wit);
+  font-weight: var(--font-weight-semibold);
+  font-size: 0.85rem;
+  clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 50%, calc(100% - 8px) 100%, 0 100%);
+  margin-right: 4px;
+}
 /* ---------- Footer ---------- */
 footer {
   font-family: var(--font-family);
