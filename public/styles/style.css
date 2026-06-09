@@ -280,6 +280,37 @@ header {
   }
 }
 
+main > :not(header, .thumbail-wrapper) {
+  margin: 12px 16px;
+}
+
+.omschrijving {
+  border: none;
+     padding-top: 1rem;
+
+  p {
+    line-height: var(--line-height-body);
+    color: var(--color-donkergrijs);
+  }
+}
+
+/* ---------- Omschrijving ---------- */
+.omschrijving-meer {
+  margin-top: 12px;
+
+  summary {
+    color: var(--color-blauw);
+    cursor: pointer;
+    font-weight: var(--font-weight-semibold);
+    list-style: none;
+  }
+
+  p {
+    margin-top: 12px;
+  }
+}
+
+
 /* ---------- Footer ---------- */
 footer {
   font-family: var(--font-family);
