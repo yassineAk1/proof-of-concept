@@ -145,116 +145,6 @@ header {
   }
 }
 
-footer {
-  font-family: var(--font-family);
-}
-
-.footer-actions {
-  background-color: var(--color-wit);
-  padding: 16px 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  border-bottom: 1px solid #e0d8ce;
-
-  a {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    text-decoration: none;
-    color: var(--color-blauw);
-  }
-}
-
-.footer-nav {
-
-background-color: #F2F2F2;
-
-  details {
-    border-bottom: 1px solid #e0d8ce;
-
-    summary {
-      padding: 16px 20px;
-      font-weight: var(--font-weight-semibold);
-      font-size: 1rem;
-      color: var(--color-donkergrijs);
-      list-style: none;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      cursor: pointer;
-
-      &::after {
-        content: '';
-        display: inline-block;
-        width: 10px;
-        height: 10px;
-        border-right: 2px solid var(--color-donkergrijs);
-        border-bottom: 2px solid var(--color-donkergrijs);
-        transform: rotate(45deg);
-        margin-top: -4px;
-      }
-    }
-
-    &[open] summary::after {
-      transform: rotate(-135deg);
-      margin-top: 4px;
-    }
-  }
-}
-
-.footer-social {
-  background-color: #F2F2F2;
-  padding: 20px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
-  align-items: center;
-  border-bottom: 1px solid #e0d8ce;
-
-  a {
-    text-decoration: none;
-    color: var(--color-blauw);
-  }
-
-  .footer-social-language {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 0.95rem;
-  }
-}
-
-.footer-legal {
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  background-color: #F2F2F2;
-
-
-  nav {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-    align-items: center;
-    height: auto;
-    background-color: transparent;
-    justify-content: flex-start;
-
-    a {
-      text-decoration: none;
-      color: var(--color-blauw);
-    }
-  }
-
-  & > a {
-    text-decoration: none;
-    color: var(--color-blauw);
-  }
-}
-
-
 .thumbnail {
   position: relative;
 
@@ -391,4 +281,111 @@ background-color: #F2F2F2;
   }
 }
 
+/* ---------- Footer ---------- */
+footer {
+  font-family: var(--font-family);
+}
+
+.footer-actions {
+  background-color: var(--color-wit);
+  padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  border-bottom: 1px solid #e0d8ce;
+
+  a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: var(--color-blauw);
+  }
+}
+
+.footer-nav {
+
+  background-color: #F2F2F2;
+
+  details {
+    border-bottom: 1px solid #e0d8ce;
+
+    summary {
+      padding: 16px 20px;
+      font-weight: var(--font-weight-semibold);
+      font-size: 1rem;
+      color: var(--color-donkergrijs);
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+
+      &::after {
+        content: '';
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        border-right: 2px solid var(--color-donkergrijs);
+        border-bottom: 2px solid var(--color-donkergrijs);
+        transform: rotate(45deg);
+        margin-top: -4px;
+      }
+    }
+
+    &[open] summary::after {
+      transform: rotate(-135deg);
+      margin-top: 4px;
+    }
+  }
+}
+
+.footer-social {
+  background-color: #F2F2F2;
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+  border-bottom: 1px solid #e0d8ce;
+
+  a {
+    text-decoration: none;
+    color: var(--color-blauw);
+  }
+
+  .footer-social-language {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.95rem;
+  }
+}
+
+.footer-legal {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  background-color: #F2F2F2;
+
+
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    align-items: center;
+    background-color: transparent;
+    justify-content: flex-start;
+
+    a {
+      text-decoration: none;
+      color: var(--color-blauw);
+    }
+  }
+
+  &>a {
+    text-decoration: none;
+    color: var(--color-blauw);
+  }
 }
