@@ -541,6 +541,41 @@ main > :not(header, .thumbail-wrapper) {
 }
 
 
+/* ---------- Antwoord op je belangrijke vragen ---------- */
+.vragen {
+
+  details {
+    border-bottom: 1px solid #e6e6e6;
+
+    &:first-of-type {
+      border-top: 1px solid #e6e6e6;
+    }
+
+    summary {
+      padding-block: 0.75rem;
+      font-weight: var(--font-weight-semibold);
+      color: var(--color-donkergrijs);
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      cursor: pointer;
+
+      img {
+        transition: transform 0.2s ease;
+      }
+    }
+
+    &[open] summary img {
+      transform: rotate(180deg);
+    }
+
+    p {
+      padding-bottom: 16px;
+    }
+  }
+}
+
+
 /* ---------- Footer ---------- */
 footer {
   font-family: var(--font-family);
