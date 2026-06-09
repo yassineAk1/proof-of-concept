@@ -502,6 +502,13 @@ main > :not(header, .thumbail-wrapper) {
   }
 }
 
+/*--------- makelaar ------------*/
+.makelaar{ 
+  border: 1px solid #e6e6e6;
+  border-radius: 8px;
+  padding: 20px;}
+
+
 /* ---------- Footer ---------- */
 footer {
   font-family: var(--font-family);
