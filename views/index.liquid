@@ -3,11 +3,12 @@
 
 {% render 'partials/thumbnail.liquid', house: house %}
 
-{% render 'partials/listing-header.liquid', house: house %}
 {% render 'partials/listing-header.liquid', house: house,  priceFormatted: priceFormatted, pricePerM2: pricePerM2, listedDate: listedDate  %}
 
 {% render 'partials/omschrijving.liquid', house: house %}
 
 {% render 'partials/kenmerken.liquid', house: house, priceFormatted: priceFormatted, pricePerM2: pricePerM2, listedDate: listedDate %}
+
+{% render 'partials/populariteit.liquid' %}
 
 {% render 'partials/footer.liquid' %}
