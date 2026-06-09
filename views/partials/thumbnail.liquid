@@ -28,35 +28,22 @@
         </div>
     </div>
     
+    {% assign media_labels = "Plattegrond,360° foto's,Video,3D Tour" | split: "," %}
+    {% assign media_icons = "floorplan@2x,virtual-tour@2x,video@2x,3dtour@2x" | split: "," %}
+
     <nav class="media-nav">
         <ul>
+            {% for item in house.gallery offset:1 limit:4 %}
             <li>
                 <a href="#">
                     <span class="media-thumb">
-                        <img class="thumb" src="https://fdnd-agency.directus.app/assets/{{ house.gallery[1].directus_files_id }}" alt="">
-                        <span class="media-icon"><img src="/icons/floorplan@2x.svg" alt=""></span>
+                        <img class="thumb" src="https://fdnd-agency.directus.app/assets/{{ item.directus_files_id }}" alt="">
+                        <span class="media-icon"><img src="/icons/{{ media_icons[forloop.index0] }}.svg" alt=""></span>
                     </span>
-                    <span class="media-label">Plattegrond</span>
+                    <span class="media-label">{{ media_labels[forloop.index0] }}</span>
                 </a>
             </li>
-            <li>
-                <a href="#">
-                    <span class="media-thumb">
-                        <img class="thumb" src="https://fdnd-agency.directus.app/assets/{{ house.gallery[2].directus_files_id }}" alt="">
-                        <span class="media-icon"><img src="/icons/virtual-tour@2x.svg" alt=""></span>
-                    </span>
-                    <span class="media-label">360° foto's</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <span class="media-thumb">
-                        <img class="thumb" src="https://fdnd-agency.directus.app/assets/{{ house.gallery[3].directus_files_id }}" alt="">
-                        <span class="media-icon"><img src="/icons/video@2x.svg" alt=""></span>
-                    </span>
-                    <span class="media-label">Video</span>
-                </a>
-            </li>
+            {% endfor %}
         </ul>
     </nav>
 </section>
