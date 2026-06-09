@@ -576,6 +576,36 @@ main > :not(header, .thumbail-wrapper) {
 }
 
 
+/* ---------- Verder verdiepen ---------- */
+.verdiepen{
+  padding-bottom: 1rem;
+
+.verdiepen-links {
+
+  li {
+    border-bottom: 1px solid #e6e6e6;
+
+    &:first-child {
+      border-top: 1px solid #e6e6e6;
+    }
+  }
+
+  a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 0;
+    text-decoration: none;
+    color: var(--color-blauw);
+    font-weight: var(--font-weight-semibold);
+  }
+
+  img {
+    width: 24px;
+    height: 24px;
+  }
+}}
+
 /* ---------- Footer ---------- */
 footer {
   font-family: var(--font-family);
