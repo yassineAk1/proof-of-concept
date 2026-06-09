@@ -402,6 +402,19 @@ main > :not(header, .thumbail-wrapper) {
   clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 50%, calc(100% - 8px) 100%, 0 100%);
   margin-right: 4px;
 }
+
+/* ---------- Sectiewrapper ---------- */
+
+
+
+.listing-section > h2,
+.omschrijving > h2 {
+  font-size: 1.25rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-donkergrijs);
+  margin-bottom: 12px;
+}
+
 /* ---------- Footer ---------- */
 footer {
   font-family: var(--font-family);
