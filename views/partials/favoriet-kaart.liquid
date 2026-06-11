@@ -1,0 +1,30 @@
+<li>
+    <article class="favoriet-kaart">
+        <div class="favoriet-kaart-foto">
+            {% assign afbeelding = huis.gallery[0].directus_files_id | default: huis.poster_image %}
+            <img src="https://fdnd-agency.directus.app/assets/{{ afbeelding }}" alt="Foto van {{ huis.street }} {{ huis.house_nr }}">
+            <button class="favoriet-knop" type="button" aria-label="Verwijder uit favorieten">
+                <img src="/icons/heart-filled-red@2x.svg" alt="" width="24" height="24">
+            </button>
+        </div>
+
+        <div class="favoriet-kaart-info">
+            <h2 class="favoriet-kaart-adres">{{ huis.street }} {{ huis.house_nr }}{% if huis.nr_addition %} {{ huis.nr_addition }}{% endif %}</h2>
+            <p class="favoriet-kaart-plaats">{{ huis.postal_code }} {{ huis.city }}</p>
+            <p class="favoriet-kaart-prijs">€ {{ huis.priceFormatted }} k.k.</p>
+
+            <ul class="favoriet-kaart-kenmerken">
+                {% if huis.m2 %}<li><img src="/icons/square@2x.svg" alt="">{{ huis.m2 }} m²</li>{% endif %}
+                {% if huis.m2_garden %}<li><img src="/icons/tile@2x.svg" alt="">{{ huis.m2_garden }} m²</li>{% endif %}
+                {% if huis.rooms %}<li><img src="/icons/bed@2x.svg" alt="">{{ huis.rooms }}</li>{% endif %}
+            </ul>
+
+            <p class="favoriet-kaart-makelaar">{{ huis.agent }}</p>
+
+            <button class="favoriet-notitie" type="button">
+                <img src="/icons/plus@2x.svg" alt="" width="20" height="20">
+                Notities toevoegen
+            </button>
+        </div>
+    </article>
+</li>

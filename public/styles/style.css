@@ -901,8 +901,98 @@ main > :not(header, .thumbail-wrapper) {
   gap: 20px;
 }
 
+.favoriet-kaart {
   background-color: var(--color-wit);
-  padding: 16px 20px;
+  border: 1px solid #e6e6e6;
+  border-radius: 8px;
+  overflow: hidden;
+
+  .favoriet-kaart-foto {
+    position: relative;
+
+    img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+    }
+  }
+
+  .favoriet-knop {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 8px;
+    background-color: var(--color-wit);
+    border: none;
+    border-radius: 6px;
+  }
+
+  .favoriet-kaart-info {
+    padding: 12px 16px;
+  }
+
+  .favoriet-kaart-adres {
+    font-size: 1rem;
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-blauw);
+  }
+
+  .favoriet-kaart-plaats {
+    color: #767676;
+  }
+
+  .favoriet-kaart-prijs {
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-donkergrijs);
+    margin-top: 8px;
+  }
+
+  .favoriet-kaart-kenmerken {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 8px;
+
+    li {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      color: var(--color-donkergrijs);
+    }
+
+    img {
+      width: 18px;
+      height: 18px;
+    }
+  }
+
+  .favoriet-kaart-makelaar {
+    color: #767676;
+    margin-top: 8px;
+  }
+
+  .favoriet-notitie {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 12px;
+    padding: 0;
+    background: none;
+    border: none;
+    color: var(--color-blauw);
+    font-weight: var(--font-weight-semibold);
+
+    img {
+      width: 20px;
+      height: 20px;
+    }
+  }
+}
+
 /* ---------- Huis acties ---------- */
 .huis-acties {
   background-color: var(--color-wit);
@@ -920,6 +1010,8 @@ main > :not(header, .thumbail-wrapper) {
   }
 }
 
+/* ---------- Footer ---------- */
+
 .footer-nav {
 
   background-color: #F2F2F2;
@@ -936,7 +1028,7 @@ main > :not(header, .thumbail-wrapper) {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      cursor: pointer;
+
 
       &::after {
         content: '';
