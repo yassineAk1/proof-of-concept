@@ -53,11 +53,11 @@ app.post('/', async function (request, response) {
 
 
 app.get('/favorieten', async function (request, response) {
-  const listResponse = await fetch('https://fdnd-agency.directus.app/items/f_list/1?fields=*.*')
+  const listResponse = await fetch('https://fdnd-agency.directus.app/items/f_list/1?fields=houses.f_houses_id.*,houses.f_houses_id.gallery.directus_files_id')
   const listJSON = await listResponse.json()
-    const favorietenLijst = listJSON.data
 
-    response.render('favorieten.liquid', {favorietenLijst})
+
+  response.render('favorieten.liquid', {favorieten})
 })
 
 
