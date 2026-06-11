@@ -1,3 +1,33 @@
+// ----------foto gallerij  ----
+
+const galerij = document.getElementById('foto-galerij');
+const teller = document.querySelector('.foto-teller');
+const huidigSpan = document.getElementById('foto-huidig');
+const thumbnail = document.getElementById('thumbnail');
+const fullscreenKnop = document.getElementById('fullscreen-knop');
+
+teller.removeAttribute('hidden');
+
+// Teller bijwerken bij elke scroll
+galerij.addEventListener('scroll', () => {
+  huidigSpan.textContent = Math.round(galerij.scrollLeft / galerij.offsetWidth) + 1;
+});
+
+// Fullscreen knop alleen zichtbaar als de browser het ondersteunt
+if (document.fullscreenEnabled) {
+  fullscreenKnop.removeAttribute('hidden');
+
+  fullscreenKnop.addEventListener('click', () => {
+    if (document.fullscreenElement) {
+      document.exitFullscreen();
+    } else {
+      thumbnail.requestFullscreen();
+    }
+  });
+
+}
+
+// ------------share popover ----
 const paginaUrl = encodeURIComponent(window.location.href);
 
 document.getElementById('share-whatsapp').href  = 'https://wa.me/?text=' + paginaUrl;
@@ -6,9 +36,8 @@ document.getElementById('share-x').href         = 'https://twitter.com/intent/tw
 document.getElementById('share-pinterest').href = 'https://pinterest.com/pin/create/button/?url=' + paginaUrl;
 
 const kopierenKnop = document.querySelector('.share-copy');
-const kopierenIcoon = kopierenKnop.querySelector('img');
 
-kopierenKnop.addEventListener('click', function() {
+kopierenKnop.addEventListener('click', () => {
   navigator.clipboard.writeText(window.location.href);
-  kopierenIcoon.src = '/icons/check-bold@2x.svg';
+  kopierenKnop.querySelector('img').src = '/icons/check-bold@2x.svg';
 });
