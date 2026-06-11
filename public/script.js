@@ -27,6 +27,27 @@ if (document.fullscreenEnabled) {
 
 }
 
+// ----------favoriet patch ----
+
+const favorietForm = document.querySelector('.action-buttons form');
+const favorietKnop = favorietForm.querySelector('button');
+
+favorietForm.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  favorietKnop.disabled = true;
+
+  const isFavoriet = favorietKnop.querySelector('img').src.includes('heart-filled-red');
+
+  if (isFavoriet) {
+    favorietKnop.innerHTML = `<img src="/icons/heart@2x.svg" alt="" width="24" height="24">`;
+  } else {
+    favorietKnop.innerHTML = `<img src="/icons/heart-filled-red@2x.svg" alt="" width="24" height="24">`;
+  }
+
+  await fetch('/', { method: 'POST' });
+  favorietKnop.disabled = false;
+});
+
 // ------------share popover ----
 const paginaUrl = encodeURIComponent(window.location.href);
 
