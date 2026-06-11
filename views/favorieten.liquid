@@ -1,5 +1,29 @@
 {% render 'partials/head.liquid' %}
-<section>
-{{ favorietenLijst|json }}
+
+<section class="favorieten">
+    <a href="/" class="favorieten-account">
+        <img src="/icons/arrow-left@2x.svg" alt="" width="20" height="20">
+        Mijn Account
+    </a>
+
+    <h1 class="favorieten-titel">Favorieten</h1>
+    <p class="favorieten-intro">Vind hier al jouw favoriete huizen terug en voeg notities toe over het huis en de buurt.</p>
+
+    <div class="favorieten-meldingen">
+        <button class="favorieten-beschikbaarheid" type="button">
+            <img src="/icons/adjustments@2x.svg" alt="" width="20" height="20">
+            Beschikbaarheid
+        </button>
+        <label class="favorieten-mail">
+            Krijg een e-mail bij wijzigingen
+            <input type="checkbox">
+        </label>
+    </div>
+
+    <ul class="favorieten-lijst">
+        {% for favoriet in favorieten %}
+            {% render 'partials/favoriet-kaart.liquid', huis: favoriet.f_houses_id %}
+        {% endfor %}
+    </ul>
 </section>
 {% render 'partials/footer.liquid' %}
