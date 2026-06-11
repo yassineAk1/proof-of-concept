@@ -1,8 +1,27 @@
 <section class="thumbail-wrapper">
-    <div class="thumbnail">
-        <a href="">
-            <img src="https://fdnd-agency.directus.app/assets/{{ house.gallery[0].directus_files_id }}" alt="">
-        </a>
+    <div class="thumbnail" id="thumbnail">
+
+        <div class="foto-galerij" id="foto-galerij">
+            {% for item in house.gallery %}
+                <figure class="foto-item" id="foto-{{ forloop.index }}">
+                    <img
+                        src="https://fdnd-agency.directus.app/assets/{{ item.directus_files_id }}"
+                        alt="Foto {{ forloop.index }} van de woning"
+                        {% unless forloop.first %}loading="lazy"{% endunless %}
+                    >
+                </figure>
+            {% endfor %}
+        </div>
+        <p class="foto-teller" hidden>
+            <span id="foto-huidig">1</span> / {{ house.gallery.size }}
+        </p>
+
+        <button class="fullscreen-knop" id="fullscreen-knop" hidden>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3 3h7v2H5v5H3V3zm11 0h7v7h-2V5h-5V3zM3 14h2v5h5v2H3v-7zm16 5h-5v2h7v-7h-2v5z" fill="white"/>
+            </svg>
+        </button>
+
         <div class="action-buttons">
 
             <button class="share" popovertarget="share-popover">
@@ -27,20 +46,15 @@
             </form>
         </div>
     </div>
-
-    {% assign media_labels = "Plattegrond,360° foto's,Video,3D Tour" | split: "," %}
-    {% assign media_icons = "floorplan@2x,virtual-tour@2x,video@2x,3dtour@2x" | split: "," %}
-
+    
     <nav class="media-nav">
         <ul>
             {% for item in house.gallery offset:1 limit:4 %}
                 <li>
-                    <a href="#">
+                    <a href="#foto-{{ forloop.index | plus: 1 }}">
                         <span class="media-thumb">
                             <img class="thumb" src="https://fdnd-agency.directus.app/assets/{{ item.directus_files_id }}" alt="">
-                            <span class="media-icon"><img src="/icons/{{ media_icons[forloop.index0] }}.svg" alt=""></span>
                         </span>
-                        <span class="media-label">{{ media_labels[forloop.index0] }}</span>
                     </a>
                 </li>
             {% endfor %}
