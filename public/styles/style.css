@@ -791,18 +791,18 @@ main > :not(header, .thumbail-wrapper) {
 }
 
 
-/* ---------- Footer ---------- */
-footer {
-  font-family: var(--font-family);
 }
 
 .footer-actions {
   background-color: var(--color-wit);
   padding: 16px 20px;
+/* ---------- Huis acties ---------- */
+.huis-acties {
+  background-color: var(--color-wit);
+  padding-block: 1rem;
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  border-bottom: 1px solid #e0d8ce;
+  gap: 1rem;
 
   a {
     display: flex;
