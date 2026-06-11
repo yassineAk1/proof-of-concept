@@ -194,6 +194,23 @@ header {
   justify-content: center;
 }
 
+.thumbnail:fullscreen .foto-item,
+.thumbnail:-webkit-full-screen .foto-item {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.thumbnail:fullscreen .foto-item img,
+.thumbnail:-webkit-full-screen .foto-item img {
+  object-fit: contain;
+}
+
+.thumbnail:fullscreen .action-buttons,
+.thumbnail:-webkit-full-screen .action-buttons {
+  display: none;
 }
 
 .media-nav {
@@ -551,6 +568,7 @@ main > :not(header, .thumbail-wrapper) {
     align-items: center;
     gap: 4px;
     padding: 16px;
+    text-align: center;
 
     +li {
       border-left: 1px solid #e6e6e6;
