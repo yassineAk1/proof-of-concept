@@ -437,7 +437,6 @@ main > :not(header, .thumbail-wrapper) {
 
   summary {
     color: var(--color-blauw);
-    cursor: pointer;
     font-weight: var(--font-weight-semibold);
     list-style: none;
   }
@@ -696,7 +695,7 @@ main > :not(header, .thumbail-wrapper) {
       display: flex;
       justify-content: space-between;
       gap: 12px;
-      cursor: pointer;
+
 
       img {
         transition: transform 0.2s ease;
@@ -774,7 +773,6 @@ main > :not(header, .thumbail-wrapper) {
     padding: 12px 24px;
     font-size: 1rem;
     font-weight: var(--font-weight-semibold);
-    cursor: pointer;
 
     img {
       width: 20px;

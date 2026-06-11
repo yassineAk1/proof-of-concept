@@ -56,6 +56,13 @@ app.get('/favorieten', async function (request, response) {
   const listResponse = await fetch('https://fdnd-agency.directus.app/items/f_list/1?fields=houses.f_houses_id.*,houses.f_houses_id.gallery.directus_files_id')
   const listJSON = await listResponse.json()
 
+  const favorieten = listJSON.data.houses
+
+  for (const favoriet of favorieten) {
+    const huis = favoriet.f_houses_id
+
+    huis.priceFormatted = huis.price.toLocaleString('nl-NL')
+  }
 
   response.render('favorieten.liquid', {favorieten})
 })
