@@ -900,6 +900,7 @@ main > :not(header, .thumbail-wrapper) {
 }
 
 .favoriet-kaart {
+  position: relative;
   background-color: var(--color-wit);
   border: 1px solid #e6e6e6;
   border-radius: 8px;
@@ -918,6 +919,7 @@ main > :not(header, .thumbail-wrapper) {
 
   .favoriet-knop {
     position: absolute;
+    z-index: 1;
     top: 12px;
     right: 12px;
     display: flex;
@@ -937,6 +939,17 @@ main > :not(header, .thumbail-wrapper) {
     font-size: 1rem;
     font-weight: var(--font-weight-semibold);
     color: var(--color-blauw);
+  }
+
+  .favoriet-kaart-link {
+    color: inherit;
+    text-decoration: none;
+
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+    }
   }
 
   .favoriet-kaart-plaats {
@@ -974,6 +987,8 @@ main > :not(header, .thumbail-wrapper) {
   }
 
   .favoriet-notitie {
+    position: relative;
+    z-index: 1;
     display: inline-flex;
     align-items: center;
     gap: 8px;
