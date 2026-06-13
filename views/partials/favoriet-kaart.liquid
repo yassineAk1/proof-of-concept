@@ -3,7 +3,7 @@
         <div class="favoriet-kaart-foto">
             {% assign afbeelding = huis.gallery[0].directus_files_id | default: huis.poster_image %}
             <img src="https://fdnd-agency.directus.app/assets/{{ afbeelding }}" alt="Foto van {{ huis.street }} {{ huis.house_nr }}">
-            <button class="favoriet-knop" type="button" aria-label="Verwijder uit favorieten">
+            <button class="favoriet-knop" type="button">
                 <img src="/icons/heart-filled-red@2x.svg" alt="" width="24" height="24">
             </button>
         </div>
