@@ -1,0 +1,14 @@
+{% render 'partials/head.liquid' %}
+
+<section class="overzicht">
+    <h1 class="overzicht-titel">Koopwoningen</h1>
+    <p class="overzicht-aantal">{{ houses.size }} resultaten</p>
+
+    <ul class="overzicht-lijst">
+        {% for huis in houses %}
+            {% render 'partials/huis-kaart.liquid', huis: huis %}
+        {% endfor %}
+    </ul>
+</section>
+
+{% render 'partials/footer.liquid' %}
