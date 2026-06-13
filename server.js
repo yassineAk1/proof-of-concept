@@ -12,14 +12,20 @@ app.engine('liquid', engine.express())
 
 app.set('views', './views')
 
-app.get('/', async function (request, response) {
-  const houseResponse = await fetch(`https://fdnd-agency.directus.app/items/f_houses/40?fields=*.*`)
+app.get('/', function (request, response) {
+  response.redirect('/huis/40')
+})
+
+app.get('/huis/:id', async function (request, response) {
+  const id = request.params.id
+
+  const houseResponse = await fetch(`https://fdnd-agency.directus.app/items/f_houses/${id}?fields=*.*`)
   const houseResponseJSON = await houseResponse.json()
-  const house = houseResponseJSON.data  
+  const house = houseResponseJSON.data
 
   const listResponse = await fetch('https://fdnd-agency.directus.app/items/f_list/1?fields=*.*')
   const listJSON = await listResponse.json()
-  const isFavoriet = listJSON.data.houses.some(huis => huis.f_houses_id === 40)
+  const isFavoriet = listJSON.data.houses.some(huis => huis.f_houses_id === Number(id))
 
   const priceFormatted = house.price.toLocaleString('nl-NL')
   const pricePerM2 = Math.round(house.price / house.m2).toLocaleString('nl-NL')
@@ -53,7 +59,7 @@ app.post('/', async function (request, response) {
 
 
 app.get('/favorieten', async function (request, response) {
-  const listResponse = await fetch('https://fdnd-agency.directus.app/items/f_list/1?fields=houses.f_houses_id.*,houses.f_houses_id.gallery.directus_files_id')
+  const listResponse = await fetch('https://fdnd-agency.directus.app/items/f_list/6?fields=houses.f_houses_id.*,houses.f_houses_id.gallery.directus_files_id')
   const listJSON = await listResponse.json()
 
   const favorieten = listJSON.data.houses

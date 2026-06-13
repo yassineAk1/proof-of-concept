@@ -9,7 +9,9 @@
         </div>
 
         <div class="favoriet-kaart-info">
-            <h2 class="favoriet-kaart-adres">{{ huis.street }} {{ huis.house_nr }}{% if huis.nr_addition %} {{ huis.nr_addition }}{% endif %}</h2>
+            <h2 class="favoriet-kaart-adres">
+                <a class="favoriet-kaart-link" href="/huis/{{ huis.id }}">{{ huis.street }} {{ huis.house_nr }}{% if huis.nr_addition %} {{ huis.nr_addition }}{% endif %}</a>
+            </h2>
             <p class="favoriet-kaart-plaats">{{ huis.postal_code }} {{ huis.city }}</p>
             <p class="favoriet-kaart-prijs">€ {{ huis.priceFormatted }} k.k.</p>
 
