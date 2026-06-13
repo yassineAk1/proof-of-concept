@@ -12,8 +12,21 @@ app.engine('liquid', engine.express())
 
 app.set('views', './views')
 
-app.get('/', function (request, response) {
-  response.redirect('/huis/40')
+app.get('/', async function (request, response) {
+  const housesResponse = await fetch('https://fdnd-agency.directus.app/items/f_houses?fields=*.*')
+  const housesJSON = await housesResponse.json()
+
+  const houses = housesJSON.data.map(huis => {
+    huis.priceFormatted = huis.price.toLocaleString('nl-NL')
+    if (huis.gallery[0]) {
+      huis.thumbnail = huis.gallery[0].directus_files_id
+    } else if (huis.poster_image) {
+      huis.thumbnail = huis.poster_image.id
+    }
+    return huis
+  })
+
+  response.render('overzicht.liquid', {houses})
 })
 
 app.get('/huis/:id', async function (request, response) {
