@@ -23,7 +23,7 @@ app.get('/huis/:id', async function (request, response) {
   const houseResponseJSON = await houseResponse.json()
   const house = houseResponseJSON.data
 
-  const listResponse = await fetch('https://fdnd-agency.directus.app/items/f_list/1?fields=*.*')
+  const listResponse = await fetch('https://fdnd-agency.directus.app/items/f_list/26?fields=*.*')
   const listJSON = await listResponse.json()
   const isFavoriet = listJSON.data.houses.some(huis => huis.f_houses_id === Number(id))
 
@@ -36,18 +36,18 @@ app.get('/huis/:id', async function (request, response) {
 
 app.post('/', async function (request, response) {
 
-  const listResponse = await fetch('https://fdnd-agency.directus.app/items/f_list/1?fields=*.*')
+  const listResponse = await fetch('https://fdnd-agency.directus.app/items/f_list/26?fields=*.*')
   const listJSON = await listResponse.json()
   const inLijst = listJSON.data.houses.find(h => h.f_houses_id === 40)
 
   if (inLijst) {
-    await fetch('https://fdnd-agency.directus.app/items/f_list/1', {
+    await fetch('https://fdnd-agency.directus.app/items/f_list/26', {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ houses: { delete: [inLijst.id] } })
     })
   } else {
-    await fetch('https://fdnd-agency.directus.app/items/f_list/1', {
+    await fetch('https://fdnd-agency.directus.app/items/f_list/26', {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ houses: { create: [{ f_houses_id: 40 }] } })
@@ -59,7 +59,7 @@ app.post('/', async function (request, response) {
 
 
 app.get('/favorieten', async function (request, response) {
-  const listResponse = await fetch('https://fdnd-agency.directus.app/items/f_list/6?fields=houses.f_houses_id.*,houses.f_houses_id.gallery.directus_files_id')
+  const listResponse = await fetch('https://fdnd-agency.directus.app/items/f_list/26?fields=houses.f_houses_id.*,houses.f_houses_id.gallery.directus_files_id')
   const listJSON = await listResponse.json()
 
   const favorieten = listJSON.data.houses
