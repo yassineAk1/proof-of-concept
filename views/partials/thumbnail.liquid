@@ -2,18 +2,22 @@
     <div class="thumbnail" id="thumbnail">
 
         <div class="foto-galerij" id="foto-galerij">
-            {% for item in house.gallery %}
+            {% for galleryImages in images %}
                 <figure class="foto-item" id="foto-{{ forloop.index }}">
                     <img
-                        src="https://fdnd-agency.directus.app/assets/{{ item.directus_files_id }}"
+                        src="https://fdnd-agency.directus.app/assets/{{ galleryImages }}"
                         alt="Foto {{ forloop.index }} van de woning"
                         {% unless forloop.first %}loading="lazy"{% endunless %}
                     >
                 </figure>
+            {% else %}
+                <figure class="foto-item" id="foto-1">
+                    <img src="/images/placeholder-huis.jpg" alt="Geen foto beschikbaar">
+                </figure>
             {% endfor %}
         </div>
         <p class="foto-teller" hidden>
-            <span id="foto-huidig">1</span> / {{ house.gallery.size }}
+            <span id="foto-huidig">1</span> / {% if images.size > 0 %}{{ images.size }}{% else %}1{% endif %}
         </p>
 
         <button class="fullscreen-knop" id="fullscreen-knop" hidden>
@@ -42,11 +46,11 @@
     
     <nav class="media-nav">
         <ul>
-            {% for item in house.gallery offset:1 limit:4 %}
+            {% for galleryImages in images offset:1 limit:4 %}
                 <li>
                     <a href="#foto-{{ forloop.index | plus: 1 }}">
                         <span class="media-thumb">
-                            <img class="thumb" src="https://fdnd-agency.directus.app/assets/{{ item.directus_files_id }}" alt="">
+                            <img class="thumb" src="https://fdnd-agency.directus.app/assets/{{ galleryImages }}" alt="">
                         </span>
                     </a>
                 </li>

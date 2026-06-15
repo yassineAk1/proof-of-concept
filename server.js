@@ -36,6 +36,13 @@ app.get('/huis/:id', async function (request, response) {
   const houseResponseJSON = await houseResponse.json()
   const house = houseResponseJSON.data
 
+  let images = []
+  if (house.gallery.length > 0) {
+    images = house.gallery.map(galleryImages => galleryImages.directus_files_id)
+  } else if (house.poster_image) {
+    images = [house.poster_image.id]
+  }
+
   const listResponse = await fetch('https://fdnd-agency.directus.app/items/f_list/26?fields=*.*')
   const listJSON = await listResponse.json()
   const isFavoriet = listJSON.data.houses.some(huis => huis.f_houses_id === Number(id))
@@ -44,7 +51,7 @@ app.get('/huis/:id', async function (request, response) {
   const pricePerM2 = Math.round(house.price / house.m2).toLocaleString('nl-NL')
   const listedDate = new Date(house.listed_date).toLocaleDateString('nl-NL', { day: 'numeric', month: 'long', year: 'numeric' })
 
-  response.render('index.liquid', {house, isFavoriet, priceFormatted, pricePerM2, listedDate})
+  response.render('index.liquid', {house, images, isFavoriet, priceFormatted, pricePerM2, listedDate})
 })
 
 app.post('/', async function (request, response) {
