@@ -2,7 +2,11 @@
     <article class="favoriet-kaart">
         <div class="favoriet-kaart-foto">
             {% assign afbeelding = huis.gallery[0].directus_files_id | default: huis.poster_image %}
-            <img src="https://fdnd-agency.directus.app/assets/{{ afbeelding }}" alt="Foto van {{ huis.street }} {{ huis.house_nr }}">
+            {% if afbeelding %}
+                <img src="https://fdnd-agency.directus.app/assets/{{ afbeelding }}" alt="Foto van {{ huis.street }} {{ huis.house_nr }}">
+            {% else %}
+                <img src="/images/placeholder-huis.jpg" alt="Geen foto beschikbaar">
+            {% endif %}
             <button class="favoriet-knop" type="button">
                 <img src="/icons/heart-filled-red@2x.svg" alt="" width="24" height="24">
             </button>
