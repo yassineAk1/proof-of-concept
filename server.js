@@ -54,11 +54,12 @@ app.get('/huis/:id', async function (request, response) {
   response.render('index.liquid', {house, images, isFavoriet, priceFormatted, pricePerM2, listedDate})
 })
 
-app.post('/', async function (request, response) {
+app.post('/huis/:id', async function (request, response) {
+  const id = Number(request.params.id)
 
   const listResponse = await fetch('https://fdnd-agency.directus.app/items/f_list/26?fields=*.*')
   const listJSON = await listResponse.json()
-  const inLijst = listJSON.data.houses.find(h => h.f_houses_id === 40)
+  const inLijst = listJSON.data.houses.find(h => h.f_houses_id === id)
 
   if (inLijst) {
     await fetch('https://fdnd-agency.directus.app/items/f_list/26', {
@@ -70,11 +71,11 @@ app.post('/', async function (request, response) {
     await fetch('https://fdnd-agency.directus.app/items/f_list/26', {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ houses: { create: [{ f_houses_id: 40 }] } })
+      body: JSON.stringify({ houses: { create: [{ f_houses_id: id }] } })
     })
   }
 
-  response.redirect('/')
+  response.redirect(`/huis/${id}`)
 })
 
 

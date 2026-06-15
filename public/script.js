@@ -44,7 +44,7 @@ favorietForm.addEventListener('submit', async (e) => {
     favorietKnop.innerHTML = `<img src="/icons/heart-filled-red@2x.svg" alt="" width="24" height="24">`;
   }
 
-  await fetch('/', { method: 'POST' });
+  await fetch(favorietForm.action, { method: 'POST' });
   favorietKnop.disabled = false;
 });
 
