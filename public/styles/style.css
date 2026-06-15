@@ -106,7 +106,7 @@ header {
   }
 
   a,
-  p {
+  span {
     color: var(--color-wit);
     font-size: 0.75rem;
   }
