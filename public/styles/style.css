@@ -1029,6 +1029,19 @@ main > :not(header, .thumbail-wrapper) {
   gap: 20px;
   margin-top: 12px;
 }
+
+@media (min-width: 768px) {
+  .overzicht-lijst {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1440px) {
+  .overzicht-lijst {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
 .huis-kaart {
   position: relative;
   display: flex;
