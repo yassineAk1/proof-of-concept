@@ -4,11 +4,7 @@
         <div class="foto-galerij" id="foto-galerij">
             {% for galleryImages in images %}
                 <figure class="foto-item" id="foto-{{ forloop.index }}">
-                    <img
-                        src="https://fdnd-agency.directus.app/assets/{{ galleryImages }}"
-                        alt="Foto {{ forloop.index }} van de woning"
-                        {% unless forloop.first %}loading="lazy"{% endunless %}
-                    >
+                    <img src="https://fdnd-agency.directus.app/assets/{{ galleryImages }}" alt="Foto {{ forloop.index }} van de woning" {% unless forloop.first %} loading="lazy" {% endunless %}>
                 </figure>
             {% else %}
                 <figure class="foto-item" id="foto-1">
@@ -17,33 +13,41 @@
             {% endfor %}
         </div>
         <p class="foto-teller" hidden>
-            <span id="foto-huidig">1</span> / {% if images.size > 0 %}{{ images.size }}{% else %}1{% endif %}
+            <span id="foto-huidig">1</span>
+            /
+            {% if images.size > 0 %}
+                {{ images.size }}{% else %}1
+            {% endif %}
         </p>
 
         <button class="fullscreen-knop" id="fullscreen-knop" hidden>
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg width="20" height="20" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M3 3h7v2H5v5H3V3zm11 0h7v7h-2V5h-5V3zM3 14h2v5h5v2H3v-7zm16 5h-5v2h7v-7h-2v5z" fill="white"/>
             </svg>
+            <span class="visually-hidden">Foto's op volledig scherm bekijken</span>
         </button>
 
         <div class="action-buttons">
 
             <button class="share" popovertarget="share-popover">
                 <img src="/icons/share@2x.svg" alt="" width="24" height="24">
+                <span class="visually-hidden">Deel deze woning</span>
             </button>
 
             <form action="/huis/{{ house.id }}" method="post">
                 <button type="submit">
                     {% if isFavoriet %}
                         <img src="/icons/heart-filled-red@2x.svg" alt="" width="24" height="24">
+                        <span class="visually-hidden">Verwijder uit favorieten</span>
                     {% else %}
                         <img src="/icons/heart@2x.svg" alt="" width="24" height="24">
+                        <span class="visually-hidden">Voeg toe aan favorieten</span>
                     {% endif %}
                 </button>
             </form>
         </div>
     </div>
-    
+
     <nav class="media-nav">
         <ul>
             {% for galleryImages in images offset:1 limit:4 %}
@@ -63,9 +67,12 @@
             <h2>Deel deze woning</h2>
             <button popovertarget="share-popover">
                 <img src="/icons/close@2x.svg" alt="" width="20" height="20">
+                <span class="visually-hidden">Sluiten</span>
             </button>
         </div>
-        <p class="share-address">{{ house.street }} {{ house.house_nr }}{{ house.nr_addition }}, {{ house.city }}</p>
+        <p class="share-address">{{ house.street }}
+            {{ house.house_nr }}{{ house.nr_addition }},
+            {{ house.city }}</p>
         <ul class="share-options">
             <li>
                 <button class="share-copy">
