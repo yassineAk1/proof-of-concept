@@ -666,10 +666,111 @@ main > :not(header, .thumbail-wrapper) {
 }
 
 /*--------- makelaar ------------*/
-.makelaar{ 
+.makelaar-card {
   border: 1px solid #e6e6e6;
   border-radius: 8px;
-  padding: 20px;}
+  overflow: hidden;
+}
+
+.makelaar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  background-color: #f2f2f2;
+  padding: 16px;
+}
+
+.makelaar-logo {
+  display: flex;
+  width: 88px;
+  height: 88px;
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.makelaar-nvm {
+  width: 28px;
+  height: 28px;
+}
+
+.makelaar-body {
+  padding: 16px 16px 0;
+}
+
+.makelaar-naam {
+  font-size: 1.25rem;
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-blauw);
+  margin-bottom: 12px;
+}
+
+.makelaar-telefoon {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 0;
+  text-decoration: none;
+  color: var(--color-blauw);
+  font-weight: var(--font-weight-semibold);
+
+  img {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.makelaar-acties {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px;
+  border-top: 1px solid #e6e6e6;
+}
+
+.makelaar-contact {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 16px;
+  background-color: var(--color-oranje);
+  border-radius: 4px;
+  text-decoration: none;
+  color: var(--color-wit);
+  font-weight: var(--font-weight-semibold);
+
+  img {
+    width: 20px;
+    height: 20px;
+    filter: brightness(0) invert(1);
+  }
+}
+
+.makelaar-bezichtiging {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--color-blauw);
+  font-weight: var(--font-weight-semibold);
+
+  img {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.makelaar-fout {
+  display: block;
+  text-align: center;
+  padding: 16px;
+  text-decoration: none;
+  color: var(--color-blauw);
+  font-weight: var(--font-weight-semibold);
+}
 
 
 /* ---------- Vergelijkbaar in de buurt ---------- */
