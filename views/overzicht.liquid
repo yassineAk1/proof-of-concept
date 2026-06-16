@@ -6,7 +6,7 @@
 
     <ul class="overzicht-lijst">
         {% for huis in houses %}
-            {% render 'partials/huis-kaart.liquid', huis: huis %}
+            {% render 'partials/huis-kaart.liquid', huis: huis, huisVolgorde: forloop.index %}
         {% endfor %}
     </ul>
 </section>

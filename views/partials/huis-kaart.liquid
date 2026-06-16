@@ -2,26 +2,46 @@
     <article class="huis-kaart">
         <div class="huis-kaart-foto">
             {% if huis.thumbnail %}
-                <img src="https://fdnd-agency.directus.app/assets/{{ huis.thumbnail }}" alt="Foto van {{ huis.street }} {{ huis.house_nr }}" loading="lazy">
+                <img src="https://fdnd-agency.directus.app/assets/{{ huis.thumbnail }}?width=800&format=webp&quality=70" width="800" height="600" alt="Foto van {{ huis.street }} {{ huis.house_nr }}" {% if huisVolgorde == 1 %} fetchpriority="high" {% else %} loading="lazy" {% endif %}>
             {% else %}
-                <img src="/images/placeholder-huis.jpg" alt="Geen foto beschikbaar" loading="lazy">
+                <img src="/images/placeholder-huis.jpg" width="800" height="600" alt="Geen foto beschikbaar" {% unless huisVolgorde == 1 %} loading="lazy" {% endunless %}>
             {% endif %}
         </div>
 
         <div class="huis-kaart-info">
             <h2 class="huis-kaart-adres">
-                <a class="huis-kaart-link" href="/huis/{{ huis.id }}">{{ huis.street }} {{ huis.house_nr }}{% if huis.nr_addition %} {{ huis.nr_addition }}{% endif %}</a>
+                <a class="huis-kaart-link" href="/huis/{{ huis.id }}">{{ huis.street }}
+                    {{ huis.house_nr }}
+                    {% if huis.nr_addition %}
+                        {{ huis.nr_addition }}
+                    {% endif %}
+                </a>
             </h2>
-            <p class="huis-kaart-plaats">{{ huis.postal_code }} {{ huis.city }}</p>
-            {% if huis.priceFormatted %}<p class="huis-kaart-prijs">€ {{ huis.priceFormatted }} k.k.</p>{% endif %}
+            <p class="huis-kaart-plaats">{{ huis.postal_code }}
+                {{ huis.city }}</p>
+            {% if huis.priceFormatted %}
+                <p class="huis-kaart-prijs">€
+                    {{ huis.priceFormatted }}
+                    k.k.</p>
+            {% endif %}
 
             <ul class="huis-kaart-kenmerken">
-                {% if huis.m2 %}<li><img src="/icons/square@2x.svg" alt="">{{ huis.m2 }} m²</li>{% endif %}
-                {% if huis.m2_garden %}<li><img src="/icons/tile@2x.svg" alt="">{{ huis.m2_garden }} m²</li>{% endif %}
-                {% if huis.rooms %}<li><img src="/icons/bed@2x.svg" alt="">{{ huis.rooms }}</li>{% endif %}
+                {% if huis.m2 %}
+                    <li><img src="/icons/square@2x.svg" alt="">{{ huis.m2 }}
+                        m²</li>
+                {% endif %}
+                {% if huis.m2_garden %}
+                    <li><img src="/icons/tile@2x.svg" alt="">{{ huis.m2_garden }}
+                        m²</li>
+                {% endif %}
+                {% if huis.rooms %}
+                    <li><img src="/icons/bed@2x.svg" alt="">{{ huis.rooms }}</li>
+                {% endif %}
             </ul>
 
-            {% if huis.agent %}<p class="huis-kaart-makelaar">{{ huis.agent }}</p>{% endif %}
+            {% if huis.agent %}
+                <p class="huis-kaart-makelaar">{{ huis.agent }}</p>
+            {% endif %}
         </div>
     </article>
 </li>
