@@ -13,7 +13,7 @@ app.engine('liquid', engine.express())
 app.set('views', './views')
 
 app.get('/', async function (request, response) {
-  const housesResponse = await fetch('https://fdnd-agency.directus.app/items/f_houses?fields=*.*')
+  const housesResponse = await fetch('https://fdnd-agency.directus.app/items/f_houses?fields=id,street,house_nr,nr_addition,postal_code,city,price,m2,m2_garden,rooms,agent,gallery.directus_files_id,poster_image.id')
   const housesJSON = await housesResponse.json()
 
   const houses = housesJSON.data.map(huis => {
