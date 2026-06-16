@@ -2,7 +2,7 @@
     <article class="huis-kaart">
         <div class="huis-kaart-foto">
             {% if huis.thumbnail %}
-                <img src="https://fdnd-agency.directus.app/assets/{{ huis.thumbnail }}?width=800&format=webp&quality=70" width="800" height="600" alt="Foto van {{ huis.street }} {{ huis.house_nr }}" {% if huisVolgorde == 1 %} fetchpriority="high" {% else %} loading="lazy" {% endif %}>
+                <img src="https://fdnd-agency.directus.app/assets/{{ huis.thumbnail }}?width=500&format=webp&quality=50" width="800" height="600" alt="Foto van {{ huis.street }} {{ huis.house_nr }}" {% if huisVolgorde == 1 %} fetchpriority="high" {% else %} loading="lazy" {% endif %}>
             {% else %}
                 <img src="/images/placeholder-huis.jpg" width="800" height="600" alt="Geen foto beschikbaar" {% unless huisVolgorde == 1 %} loading="lazy" {% endunless %}>
             {% endif %}
