@@ -201,7 +201,7 @@ header {
   position: absolute;
   bottom: 12px;
   left: 12px;
-  background: #00000080;
+  background: #000000;
   color: var(--color-wit);
   padding: 4px 8px;
   font-size: 0.75rem;
@@ -212,7 +212,7 @@ header {
   position: absolute;
   bottom: 12px;
   right: 12px;
-  background: #00000080;
+  background: #000000;
   border: none;
   padding: 8px;
   display: flex;
