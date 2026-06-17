@@ -1561,4 +1561,45 @@ button:active {
   to   { opacity: 0; transform: translateY(-16px); }
 }
 
+/* ---------- Offline-pagina ---------- */
+.offline {
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 3rem 1.5rem;
+  text-align: center;
+}
+
+.offline-icoon {
+  width: 96px;
+  height: 96px;
+}
+
+.offline-titel {
+  font-size: 1.5rem;
+  line-height: var(--line-height-display-headline);
+}
+
+.offline-tekst {
+  max-width: 40ch;
+  color: var(--color-donkergrijs);
+}
+
+.offline-knop {
+  margin-top: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-wit);
+  background-color: var(--color-blauw);
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background-color var(--transition-snel);
+}
+
+.offline-knop:hover {
+  background-color: var(--color-blauw-hover);
 }
