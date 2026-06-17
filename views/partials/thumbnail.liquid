@@ -4,7 +4,7 @@
         <div class="foto-galerij" id="foto-galerij">
             {% for galleryImages in images %}
                 <figure class="foto-item" id="foto-{{ forloop.index }}">
-                    <img src="https://fdnd-agency.directus.app/assets/{{ galleryImages }}" alt="Foto {{ forloop.index }} van de woning" {% unless forloop.first %} loading="lazy" {% endunless %}>
+                    <img src="https://fdnd-agency.directus.app/assets/{{ galleryImages }}?width=800&format=webp&quality=70" alt="Foto {{ forloop.index }} van de woning" {% if forloop.first %} fetchpriority="high" {% else %} loading="lazy" {% endif %}>
                 </figure>
             {% else %}
                 <figure class="foto-item" id="foto-1">
@@ -54,7 +54,7 @@
                 <li>
                     <a href="#foto-{{ forloop.index | plus: 1 }}">
                         <span class="media-thumb">
-                            <img class="thumb" src="https://fdnd-agency.directus.app/assets/{{ galleryImages }}" alt="">
+                            <img class="thumb" src="https://fdnd-agency.directus.app/assets/{{ galleryImages }}?width=200&format=webp&quality=50" alt="" width="160" height="120" loading="lazy">
                         </span>
                         <span class="visually-hidden">Ga naar foto {{ forloop.index | plus: 1 }}</span>
                     </a>
