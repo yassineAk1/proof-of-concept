@@ -39,14 +39,54 @@ favorietForm.addEventListener('submit', async (e) => {
   const isFavoriet = favorietKnop.querySelector('img').src.includes('heart-filled-red');
 
   if (isFavoriet) {
-    favorietKnop.innerHTML = `<img src="/icons/heart@2x.svg" alt="" width="24" height="24">`;
+    favorietKnop.innerHTML = `<img src="/icons/heart@2x.svg" alt="" width="24" height="24"><span class="visually-hidden">Voeg toe aan favorieten</span>`;
   } else {
-    favorietKnop.innerHTML = `<img src="/icons/heart-filled-red@2x.svg" alt="" width="24" height="24">`;
+    favorietKnop.innerHTML = `<img src="/icons/heart-filled-red@2x.svg" alt="" width="24" height="24"><span class="visually-hidden">Verwijder uit favorieten</span>`;
   }
+
+  favorietKnop.querySelector('img').classList.add('hart-animatie');
+
+  toonLikeMelding(!isFavoriet);
 
   await fetch(favorietForm.action, { method: 'POST' });
   favorietKnop.disabled = false;
 });
+
+// ----------favoriet melding ----
+
+const likeMelding = document.getElementById('like-melding');
+const likeMeldingTitel = document.getElementById('like-melding-titel');
+const likeMeldingTekst = document.getElementById('like-melding-tekst');
+const likeMeldingSluiten = document.getElementById('like-melding-sluiten');
+let likeMeldingTimer;
+
+function toonLikeMelding(bewaard) {
+  if (bewaard) {
+    likeMeldingTitel.textContent = 'Je huis is bewaard';
+    likeMeldingTekst.innerHTML = `Je vindt 'm onder <a href="/favorieten">Favorieten</a> in je account`;
+  } else {
+    likeMeldingTitel.textContent = 'Je huis is verwijderd';
+    likeMeldingTekst.textContent = 'Je hebt dit huis uit je favorieten gehaald';
+  }
+
+  likeMelding.classList.toggle('is-verwijderd', !bewaard);
+
+  likeMelding.classList.remove('like-melding-verbergen');
+  likeMelding.hidden = false;
+
+  clearTimeout(likeMeldingTimer);
+  likeMeldingTimer = setTimeout(verbergLikeMelding, 2000);
+}
+
+function verbergLikeMelding() {
+  likeMelding.classList.add('like-melding-verbergen');
+  likeMelding.addEventListener('animationend', () => {
+    likeMelding.hidden = true;
+    likeMelding.classList.remove('like-melding-verbergen');
+  }, { once: true });
+}
+
+likeMeldingSluiten.addEventListener('click', verbergLikeMelding);
 
 // ------------share popover ----
 const paginaUrl = encodeURIComponent(window.location.href);
