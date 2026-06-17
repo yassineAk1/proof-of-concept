@@ -1459,6 +1459,28 @@ input:focus-visible {
     transform: scale(1.05);
   }
 }
+
+button:active {
+  transform: scale(0.97);
+}
+
+.verdiepen-links {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.verdiepen-links li,
+.verdiepen-links li:first-child {
+  border: none;
+}
+
+.verdiepen-links a {
+  border: 1px solid #e6e6e6;
+  border-radius: 8px;
+  padding: 16px 20px;
+}
+
 @media (hover: hover) {
   .verdiepen-links a:hover {
     background-color: var(--color-lichtblauw);
