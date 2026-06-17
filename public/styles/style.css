@@ -1344,6 +1344,29 @@ main > :not(header, .thumbail-wrapper) {
     text-decoration: none;
     color: var(--color-blauw);
   }
+}
+
+a,
+button,
+summary,
+input,
+.media-thumb,
+.huis-kaart,
+.favoriet-kaart,
+.woning-kaart {
+  transition:
+    color var(--transition-snel),
+    background-color var(--transition-snel),
+    border-color var(--transition-snel),
+    box-shadow var(--transition-normaal),
+    transform var(--transition-normaal),
+    opacity var(--transition-snel);
+}
+
+.header-buttons a,
+.hamburger-menu button {
+  border-radius: 2px;
+}
 @media (hover: hover) {
   .listing-maandlasten:hover,
   .bekijk-alle:hover,
