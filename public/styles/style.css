@@ -74,6 +74,12 @@
   /*110% voor koppen, 150% voor body */
   --line-height-display-headline: 1.1;
   --line-height-body: 1.5;
+
+  /* ---------- Hover-kleuren & transities--- */
+  --color-oranje-hover: #f08c00;
+  --color-blauw-hover: #005a8c;
+  --transition-snel: 0.15s ease;
+  --transition-normaal: 0.25s ease;
 }
 
 *,
@@ -90,6 +96,7 @@ body {
   color: var(--color-donkergrijs);
   line-height: var(--line-height-body);
   font-size: 1rem;
+  scroll-behavior: smooth;
 }
 
 .visually-hidden {
