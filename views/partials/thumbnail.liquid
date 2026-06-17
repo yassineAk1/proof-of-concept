@@ -63,6 +63,24 @@
         </ul>
     </nav>
 
+    <div class="like-melding" id="like-melding" hidden>
+        <svg class="like-melding-icoon" id="like-melding-icoon-bewaard" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="12" cy="12" r="12" fill="#599f7e"/>
+            <path d="M7 12.5l3.2 3.2L17 9" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <svg class="like-melding-icoon" id="like-melding-icoon-verwijderd" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="12" cy="12" r="12" fill="#c93328"/>
+            <path d="M8 8l8 8M16 8l-8 8" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div class="like-melding-wrapper">
+            <p class="like-melding-titel" id="like-melding-titel">Je huis is bewaard</p>
+            <p id="like-melding-tekst">Je vindt 'm onder <a href="/favorieten">Favorieten</a> in je account</p>
+        </div>
+        <button class="like-melding-sluiten" id="like-melding-sluiten" type="button">
+            <img src="/icons/close@2x.svg" alt="" width="20" height="20">
+        </button>
+    </div>
+
     <div id="share-popover" popover>
         <div class="share-popover-header">
             <h2>Deel deze woning</h2>
