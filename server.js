@@ -95,6 +95,12 @@ app.get('/favorieten', async function (request, response) {
 })
 
 
+// Offline-fallback: de service worker precachet deze pagina en serveert 'm zonder netwerk.
+app.get('/offline', function (request, response) {
+  response.render('offline.liquid')
+})
+
+
 app.set('port', process.env.PORT || 8000)
 
 // Start Express op, gebruik daarbij het zojuist ingestelde poortnummer op
