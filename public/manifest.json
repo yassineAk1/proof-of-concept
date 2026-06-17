@@ -1,0 +1,31 @@
+{
+  "name": "Funda",
+  "short_name": "Funda",
+  "description": "Bekijk woningen te koop en bewaar je favorieten.",
+  "lang": "nl",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "theme_color": "#0071b3",
+  "background_color": "#ffffff",
+  "icons": [
+    {
+      "src": "/icons/funda-icon.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/funda-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/funda-icon.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}
