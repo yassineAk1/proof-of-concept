@@ -1,3 +1,12 @@
+// ---------- service worker registreren ----
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/sw.js').catch((error) => {
+      console.error('Service worker registratie mislukt:', error);
+    });
+  });
+}
+
 // ----------foto gallerij  ----
 
 const galerij = document.getElementById('foto-galerij');
