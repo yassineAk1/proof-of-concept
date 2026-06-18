@@ -82,6 +82,12 @@
   --transition-normaal: 0.25s ease;
 }
 
+/* ---------- Standaard pagina-overgang (View Transitions) ---------- */
+@view-transition {
+  navigation: auto;
+}
+
+
 *,
 *::before,
 *::after {
