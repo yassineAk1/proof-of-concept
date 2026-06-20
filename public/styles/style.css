@@ -194,7 +194,7 @@ header {
 
 .thumbnail {
   position: relative;
-  
+
   [hidden] {
   display: none !important;
 }
@@ -254,7 +254,7 @@ header {
 }
 
 .foto-item img {
-  width: 100%;    
+  width: 100%;
   scroll-snap-align: start;
   display: block;
 }
@@ -504,6 +504,19 @@ main > :not(header, .thumbail-wrapper) {
     gap: 20px;
   }
 
+  @media (min-width: 1024px) {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 22rem;
+    gap: 20px 2rem;
+    align-items: start;
+
+    .makelaar {
+      grid-column: 2;
+      grid-row: 1 / span 8;
+      align-self: start;
+      position: sticky;
+      top: 24px;
+    }
   }
 }
 
