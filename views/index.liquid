@@ -3,23 +3,27 @@
 
 {% render 'partials/thumbnail.liquid', house: house, isFavoriet: isFavoriet, images: images %}
 
-{% render 'partials/listing-header.liquid', house: house,  priceFormatted: priceFormatted, pricePerM2: pricePerM2, listedDate: listedDate  %}
+<div class="detail-layout">
 
-{% render 'partials/omschrijving.liquid', house: house %}
+  {% render 'partials/listing-header.liquid', house: house,  priceFormatted: priceFormatted, pricePerM2: pricePerM2, listedDate: listedDate  %}
 
-{% render 'partials/kenmerken.liquid', house: house, priceFormatted: priceFormatted, pricePerM2: pricePerM2, listedDate: listedDate %}
+  {% render 'partials/omschrijving.liquid', house: house %}
 
-{% render 'partials/populariteit.liquid' %}
+  {% render 'partials/kenmerken.liquid', house: house, priceFormatted: priceFormatted, pricePerM2: pricePerM2, listedDate: listedDate %}
 
-{% render 'partials/overDeBuurt.liquid', house: house %}
+  {% render 'partials/populariteit.liquid' %}
 
-{% render 'partials/makelaar.liquid' %}
+  {% render 'partials/overDeBuurt.liquid', house: house %}
 
-{% render 'partials/vergelijkbaar.liquid', house: house, images: images %}
+  {% render 'partials/makelaar.liquid' %}
 
-{% render 'partials/vragen.liquid' %}
+  {% render 'partials/vergelijkbaar.liquid', house: house, images: images %}
 
-{% render 'partials/verdiepen.liquid' %}
+  {% render 'partials/vragen.liquid' %}
+
+  {% render 'partials/verdiepen.liquid' %}
+
+</div>
 
 {% render 'partials/bewaar-blok.liquid' %}
 

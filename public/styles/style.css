@@ -82,7 +82,7 @@
   --transition-normaal: 0.25s ease;
 }
 
-/* ---------- Standaard pagina-overgang (View Transitions) ---------- */
+/* ---------- Standaard view transition ---------- */
 @view-transition {
   navigation: auto;
 }
@@ -180,6 +180,16 @@ header {
       gap: 4px;
     }
   }
+
+  @media (min-width: 768px) {
+    background-color: var(--color-oranje);
+
+    nav {
+      max-width: var(--max-content);
+      margin-inline: auto;
+      background-color: transparent;
+    }
+  }
 }
 
 .thumbnail {
@@ -188,6 +198,12 @@ header {
   [hidden] {
   display: none !important;
 }
+
+  @media (min-width: 768px) {
+    .foto-teller {
+      display: none;
+    }
+  }
 }
 
 .foto-galerij {
@@ -196,12 +212,45 @@ header {
   scrollbar-width: none;
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
+
+  @media (min-width: 768px) {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 8px;
+    height: clamp(320px, 40vw, 460px);
+    overflow: visible;
+    scroll-snap-type: none;
+  }
 }
 
 .foto-item {
   flex-shrink: 0;
   width: 100%;
   scroll-margin-top: 60px;
+
+  @media (min-width: 768px) {
+    height: 100%;
+    scroll-margin-top: 0;
+
+    &:first-child {
+      grid-row: 1 / 3;
+    }
+
+    &:nth-child(n+6) {
+      display: none;
+    }
+
+    &:only-child {
+      grid-column: 1 / -1;
+    }
+
+    img {
+      height: 100%;
+      object-fit: cover;
+      border-radius: 6px;
+    }
+  }
 }
 
 .foto-item img {
@@ -266,6 +315,10 @@ header {
     text-decoration: none;
     color: var(--color-blauw);
     text-align: center;
+  }
+
+  @media (min-width: 768px) {
+    display: none;
   }
 }
 
@@ -440,6 +493,18 @@ header {
 
 main > :not(header, .thumbail-wrapper) {
   margin: 12px 16px;
+}
+
+.detail-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  @media (min-width: 768px) {
+    gap: 20px;
+  }
+
+  }
 }
 
 .omschrijving {
@@ -1260,6 +1325,12 @@ main > :not(header, .thumbail-wrapper) {
     gap: 12px;
     text-decoration: none;
     color: var(--color-blauw);
+  }
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1rem 2rem;
   }
 }
 
