@@ -80,7 +80,7 @@ app.post('/huis/:id', async function (request, response) {
 
 
 app.get('/favorieten', async function (request, response) {
-  const listResponse = await fetch('https://fdnd-agency.directus.app/items/f_list/26?fields=houses.f_houses_id.*,houses.f_houses_id.gallery.directus_files_id')
+const listResponse = await fetch('https://fdnd-agency.directus.app/items/f_list/26?fields=houses.f_houses_id.id,houses.f_houses_id.street,houses.f_houses_id.house_nr,houses.f_houses_id.nr_addition,houses.f_houses_id.postal_code,houses.f_houses_id.city,houses.f_houses_id.price,houses.f_houses_id.m2,houses.f_houses_id.m2_garden,houses.f_houses_id.rooms,houses.f_houses_id.agent,houses.f_houses_id.poster_image,houses.f_houses_id.gallery.directus_files_id')
   const listJSON = await listResponse.json()
 
   const favorieten = listJSON.data.houses
