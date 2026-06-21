@@ -18,7 +18,9 @@ app.get('/', async function (request, response) {
   const housesResponse = await fetch('https://fdnd-agency.directus.app/items/f_houses?fields=id,street,house_nr,nr_addition,postal_code,city,price,m2,m2_garden,rooms,agent,gallery.directus_files_id,poster_image.id')
   const housesJSON = await housesResponse.json()
 
+  //  .map() bundelt huizen samen tot een nieuwe lijst
   const houses = housesJSON.data.map(huis => {
+    // toLocaleString('nl-NL') maakt 450.000 van 450000
     huis.priceFormatted = huis.price.toLocaleString('nl-NL')
     if (huis.gallery[0]) {
       huis.thumbnail = huis.gallery[0].directus_files_id
