@@ -12,6 +12,8 @@ app.engine('liquid', engine.express())
 
 app.set('views', './views')
 
+const favorietenUrl = 'https://fdnd-agency.directus.app/items/f_list/26?fields=*.*'
+
 app.get('/', async function (request, response) {
   const housesResponse = await fetch('https://fdnd-agency.directus.app/items/f_houses?fields=id,street,house_nr,nr_addition,postal_code,city,price,m2,m2_garden,rooms,agent,gallery.directus_files_id,poster_image.id')
   const housesJSON = await housesResponse.json()
@@ -43,7 +45,7 @@ app.get('/huis/:id', async function (request, response) {
     images = [house.poster_image.id]
   }
 
-  const listResponse = await fetch('https://fdnd-agency.directus.app/items/f_list/26?fields=*.*')
+  const listResponse = await fetch(favorietenUrl)
   const listJSON = await listResponse.json()
   const isFavoriet = listJSON.data.houses.some(huis => huis.f_houses_id === Number(id))
 
@@ -57,7 +59,7 @@ app.get('/huis/:id', async function (request, response) {
 app.post('/huis/:id', async function (request, response) {
   const id = Number(request.params.id)
 
-  const listResponse = await fetch('https://fdnd-agency.directus.app/items/f_list/26?fields=*.*')
+  const listResponse = await fetch(favorietenUrl)
   const listJSON = await listResponse.json()
   const inLijst = listJSON.data.houses.find(h => h.f_houses_id === id)
 
