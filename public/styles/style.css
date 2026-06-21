@@ -1366,6 +1366,9 @@ main > :not(header, .thumbail-wrapper) {
       justify-content: space-between;
       align-items: center;
 
+      &::-webkit-details-marker {
+        display: none;
+      }
 
       &::after {
         content: '';
