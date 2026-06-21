@@ -32,8 +32,19 @@ if (document.fullscreenEnabled) {
     } else {
       thumbnail.requestFullscreen();
     }
-  });
+  });}
+   else if (typeof HTMLDialogElement === 'function') {
+  // bij geen Fullscreen API tik op een foto om die te vergroten in een dialog
+  const fotoDialog = document.getElementById('foto-dialog');
+  const fotoDialogGalerij = document.getElementById('foto-dialog-galerij');
 
+  galerij.querySelectorAll('img').forEach((foto, index) => {
+    foto.addEventListener('click', () => {
+      fotoDialog.showModal();
+      // opent de aangeklikte foto daarna kun je swipen
+      fotoDialogGalerij.scrollLeft;
+    });
+  });
 }
 
 // ----------favoriet patch ----

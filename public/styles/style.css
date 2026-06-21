@@ -300,6 +300,43 @@ header {
 .thumbnail:-webkit-full-screen .action-buttons {
   display: none;
 }
+/* --------- foto dialog styling */
+.foto-dialog {
+  width: 100%;
+  height: 100%;
+  max-width: 100vw;
+  max-height: 100vh;
+  border: none;
+  background: #000000;
+}
+
+
+.foto-dialog-galerij {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+}
+
+.foto-dialog-galerij img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  scroll-snap-align: start;
+}
+
+.foto-dialog-sluiten {
+  position: fixed;
+  top: 12px;
+  right: 12px;
+  background: #000000;
+  border: none;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 .media-nav {
   padding-inline: 1rem;
