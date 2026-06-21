@@ -15,6 +15,8 @@ const huidigSpan = document.getElementById('foto-huidig');
 const thumbnail = document.getElementById('thumbnail');
 const fullscreenKnop = document.getElementById('fullscreen-knop');
 
+if (galerij) {
+
 teller.removeAttribute('hidden');
 
 // Teller bijwerken bij elke scroll
@@ -122,3 +124,5 @@ kopierenKnop.addEventListener('click', () => {
   navigator.clipboard.writeText(window.location.href);
   kopierenKnop.querySelector('img').src = '/icons/check-bold@2x.svg';
 });
+
+}
