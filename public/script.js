@@ -15,6 +15,8 @@ const huidigSpan = document.getElementById('foto-huidig');
 const thumbnail = document.getElementById('thumbnail');
 const fullscreenKnop = document.getElementById('fullscreen-knop');
 
+if (galerij) {
+
 teller.removeAttribute('hidden');
 
 // Teller bijwerken bij elke scroll
@@ -32,8 +34,19 @@ if (document.fullscreenEnabled) {
     } else {
       thumbnail.requestFullscreen();
     }
-  });
+  });}
+   else if (typeof HTMLDialogElement === 'function') {
+  // bij geen Fullscreen API tik op een foto om die te vergroten in een dialog
+  const fotoDialog = document.getElementById('foto-dialog');
+  const fotoDialogGalerij = document.getElementById('foto-dialog-galerij');
 
+  galerij.querySelectorAll('img').forEach((foto, index) => {
+    foto.addEventListener('click', () => {
+      fotoDialog.showModal();
+      // opent de aangeklikte foto daarna kun je swipen
+      fotoDialogGalerij.scrollLeft;
+    });
+  });
 }
 
 // ----------favoriet patch ----
@@ -111,3 +124,5 @@ kopierenKnop.addEventListener('click', () => {
   navigator.clipboard.writeText(window.location.href);
   kopierenKnop.querySelector('img').src = '/icons/check-bold@2x.svg';
 });
+
+}

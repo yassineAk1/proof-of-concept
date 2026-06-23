@@ -12,11 +12,15 @@ app.engine('liquid', engine.express())
 
 app.set('views', './views')
 
+const favorietenUrl = 'https://fdnd-agency.directus.app/items/f_list/26?fields=*.*'
+
 app.get('/', async function (request, response) {
   const housesResponse = await fetch('https://fdnd-agency.directus.app/items/f_houses?fields=id,street,house_nr,nr_addition,postal_code,city,price,m2,m2_garden,rooms,agent,gallery.directus_files_id,poster_image.id')
   const housesJSON = await housesResponse.json()
 
+  //  .map() bundelt huizen samen tot een nieuwe lijst
   const houses = housesJSON.data.map(huis => {
+    // toLocaleString('nl-NL') maakt 450.000 van 450000
     huis.priceFormatted = huis.price.toLocaleString('nl-NL')
     if (huis.gallery[0]) {
       huis.thumbnail = huis.gallery[0].directus_files_id
@@ -43,7 +47,7 @@ app.get('/huis/:id', async function (request, response) {
     images = [house.poster_image.id]
   }
 
-  const listResponse = await fetch('https://fdnd-agency.directus.app/items/f_list/26?fields=*.*')
+  const listResponse = await fetch(favorietenUrl)
   const listJSON = await listResponse.json()
   const isFavoriet = listJSON.data.houses.some(huis => huis.f_houses_id === Number(id))
 
@@ -57,7 +61,7 @@ app.get('/huis/:id', async function (request, response) {
 app.post('/huis/:id', async function (request, response) {
   const id = Number(request.params.id)
 
-  const listResponse = await fetch('https://fdnd-agency.directus.app/items/f_list/26?fields=*.*')
+  const listResponse = await fetch(favorietenUrl)
   const listJSON = await listResponse.json()
   const inLijst = listJSON.data.houses.find(h => h.f_houses_id === id)
 
@@ -80,7 +84,7 @@ app.post('/huis/:id', async function (request, response) {
 
 
 app.get('/favorieten', async function (request, response) {
-  const listResponse = await fetch('https://fdnd-agency.directus.app/items/f_list/26?fields=houses.f_houses_id.*,houses.f_houses_id.gallery.directus_files_id')
+const listResponse = await fetch('https://fdnd-agency.directus.app/items/f_list/26?fields=houses.f_houses_id.id,houses.f_houses_id.street,houses.f_houses_id.house_nr,houses.f_houses_id.nr_addition,houses.f_houses_id.postal_code,houses.f_houses_id.city,houses.f_houses_id.price,houses.f_houses_id.m2,houses.f_houses_id.m2_garden,houses.f_houses_id.rooms,houses.f_houses_id.agent,houses.f_houses_id.poster_image,houses.f_houses_id.gallery.directus_files_id')
   const listJSON = await listResponse.json()
 
   const favorieten = listJSON.data.houses

@@ -82,7 +82,7 @@
   --transition-normaal: 0.25s ease;
 }
 
-/* ---------- Standaard pagina-overgang (View Transitions) ---------- */
+/* ---------- Standaard view transition ---------- */
 @view-transition {
   navigation: auto;
 }
@@ -180,14 +180,30 @@ header {
       gap: 4px;
     }
   }
+
+  @media (min-width: 768px) {
+    background-color: var(--color-oranje);
+
+    nav {
+      max-width: var(--max-content);
+      margin-inline: auto;
+      background-color: transparent;
+    }
+  }
 }
 
 .thumbnail {
   position: relative;
-  
+
   [hidden] {
   display: none !important;
 }
+
+  @media (min-width: 768px) {
+    .foto-teller {
+      display: none;
+    }
+  }
 }
 
 .foto-galerij {
@@ -196,16 +212,49 @@ header {
   scrollbar-width: none;
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
+
+  @media (min-width: 768px) {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 8px;
+    height: clamp(320px, 40vw, 460px);
+    overflow: visible;
+    scroll-snap-type: none;
+  }
 }
 
 .foto-item {
   flex-shrink: 0;
   width: 100%;
   scroll-margin-top: 60px;
+
+  @media (min-width: 768px) {
+    height: 100%;
+    scroll-margin-top: 0;
+
+    &:first-child {
+      grid-row: 1 / 3;
+    }
+
+    &:nth-child(n+6) {
+      display: none;
+    }
+
+    &:only-child {
+      grid-column: 1 / -1;
+    }
+
+    img {
+      height: 100%;
+      object-fit: cover;
+      border-radius: 6px;
+    }
+  }
 }
 
 .foto-item img {
-  width: 100%;    
+  width: 100%;
   scroll-snap-align: start;
   display: block;
 }
@@ -251,6 +300,43 @@ header {
 .thumbnail:-webkit-full-screen .action-buttons {
   display: none;
 }
+/* --------- foto dialog styling */
+.foto-dialog {
+  width: 100%;
+  height: 100%;
+  max-width: 100vw;
+  max-height: 100vh;
+  border: none;
+  background: #000000;
+}
+
+
+.foto-dialog-galerij {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+}
+
+.foto-dialog-galerij img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  scroll-snap-align: start;
+}
+
+.foto-dialog-sluiten {
+  position: fixed;
+  top: 12px;
+  right: 12px;
+  background: #000000;
+  border: none;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 .media-nav {
   padding-inline: 1rem;
@@ -266,6 +352,10 @@ header {
     text-decoration: none;
     color: var(--color-blauw);
     text-align: center;
+  }
+
+  @media (min-width: 768px) {
+    display: none;
   }
 }
 
@@ -440,6 +530,31 @@ header {
 
 main > :not(header, .thumbail-wrapper) {
   margin: 12px 16px;
+}
+
+.detail-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  @media (min-width: 768px) {
+    gap: 20px;
+  }
+
+  @media (min-width: 1024px) {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 22rem;
+    gap: 20px 2rem;
+    align-items: start;
+
+    .makelaar {
+      grid-column: 2;
+      grid-row: 1 / span 8;
+      align-self: start;
+      position: sticky;
+      top: 24px;
+    }
+  }
 }
 
 .omschrijving {
@@ -1261,6 +1376,12 @@ main > :not(header, .thumbail-wrapper) {
     text-decoration: none;
     color: var(--color-blauw);
   }
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1rem 2rem;
+  }
 }
 
 /* ---------- Footer ---------- */
@@ -1282,6 +1403,9 @@ main > :not(header, .thumbail-wrapper) {
       justify-content: space-between;
       align-items: center;
 
+      &::-webkit-details-marker {
+        display: none;
+      }
 
       &::after {
         content: '';

@@ -27,6 +27,22 @@
             <span class="visually-hidden">Foto's op volledig scherm bekijken</span>
         </button>
 
+        <dialog class="foto-dialog" id="foto-dialog">
+            <div class="foto-dialog-galerij" id="foto-dialog-galerij">
+                {% for galleryImages in images %}
+                    <img src="https://fdnd-agency.directus.app/assets/{{ galleryImages }}?width=1200&format=webp&quality=80" alt="Foto {{ forloop.index }} van de woning" loading="lazy">
+                {% else %}
+                    <img src="/images/placeholder-huis.jpg" alt="">
+                {% endfor %}
+            </div>
+            <form method="dialog">
+            <button class="foto-dialog-sluiten">
+                <img src="/icons/close@2x.svg" alt="" width="40" height="40">
+                <span class="visually-hidden">Sluiten</span>
+            </button>
+        </form>
+        </dialog>
+
         <div class="action-buttons">
 
             <button class="share" popovertarget="share-popover">
